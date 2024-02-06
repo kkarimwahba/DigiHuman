@@ -32,17 +32,17 @@ const App: React.FC = () => {
     console.log(event.data.url);
     const digi= event.data.url;
     console.log(digi);
-  //   if(user){
-  //     const userEmail = user.email;
-  //     const userRef = query(collection(firestore, "users"), where("email", "==", userEmail));
-  //     const findUsers = await getDocs(userRef);
-  //     findUsers.forEach( async (user) => {
-  //      const getUser = doc(firestore, 'users', user.id);
-  //      await updateDoc(getUser, {
-  //       avatar:avatarUrl
-  //      });
-  //     });
-  // }
+    if(user){
+      const userEmail = user.email;
+      const userRef = query(collection(firestore, "users"), where("email", "==", userEmail));
+      const findUsers = await getDocs(userRef);
+      findUsers.forEach( async (user) => {
+       const getUser = doc(firestore, 'users', user.id);
+       await updateDoc(getUser, {
+        avatar:digi
+       });
+      });
+  }
 }
 
 
