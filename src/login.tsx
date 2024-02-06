@@ -2,26 +2,28 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { signInWithEmailAndPassword} from 'firebase/auth';
 import { auth }  from './firebase';
+
+
 const LoginPage: React.FC = () => {
     const navigate = useNavigate();
     const [email,setEmail]=useState("");
     const [password,setPassword]=useState("");
+    setEmail(email);
     const handleLogin = (e) => {
         e.preventDefault();
         console.log(email);
         console.log(password);
+        
         signInWithEmailAndPassword(auth,email, password)
         .then((userCredential) => {
             console.log(userCredential)
-            navigate('/app');
-
+            navigate('/app'); 
         }).catch((error) => {
             console.log(error)
         });
        
     };
  
-
     return (
         <div style={{flex:1,height:"83vh",backgroundColor:"#120B2B",  margin: "auto",textAlign:"center",paddingTop:"15vh"}}>
             <div style={{display: "inline-block",margin:"auto", padding: "3px",}}>
@@ -57,10 +59,9 @@ const LoginPage: React.FC = () => {
                         value={email} 
                         onChange={(e)=>{setEmail(e.target.value)}}
                         />
-                                    <br></br>
-                                    <br></br>
-                                    <br></br>
-
+                        <br></br>
+                        <br></br>
+                        <br></br>
             <label style={{
                         fontSize:25,
                         fontWeight:400,
@@ -95,10 +96,23 @@ const LoginPage: React.FC = () => {
                 textAlign:"center",
                 fontSize:35
                 }}>Login</button>
+              
                 </form>
+                <button onClick={() => navigate('/signup')} style={{
+                paddingBottom:16,
+                borderColor: "#4622C9",
+                justifyContent: 'center',
+                borderWidth:2,
+                borderRadius:12,
+                alignItems: 'center',
+                backgroundColor:"#4622C9",
+                width: "105%",
+                textAlign:"center",
+                fontSize:35
+                }}>Signup</button>
             </div>
         </div>
     );
 };
 
-export default LoginPage;
+export default LoginPage;   
