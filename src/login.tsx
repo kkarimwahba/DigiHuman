@@ -25,17 +25,18 @@ const LoginPage: React.FC = () => {
     return (
         <div style={{flex:1,height:"83vh",backgroundColor:"#120B2B",  margin: "auto",textAlign:"center",paddingTop:"15vh"}}>
             <div style={{display: "inline-block",margin:"auto", padding: "3px",}}>
-            <form onSubmit={handleLogin} 
-            style={{  
-                width: "100vh",
-                textAlign: "left"
-                }}>
             <h1 style={{
                     fontSize:50,
                     fontWeight:'bold',
                     alignSelf: 'center', 
                     color:"white"
                 }}>Login</h1>
+            <form onSubmit={handleLogin} 
+            style={{  
+                width: "100vh",
+                textAlign: "left"
+                }}>
+           
                 <label style={{
                         fontSize:25,
                         fontWeight:400,
